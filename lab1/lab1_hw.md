@@ -43,7 +43,7 @@ RStudio is a GUI that help using R better and it lets you use lots of packages e
   
 **5. Did any of the results in #4 surprise you? Write two programs that calculate each expression such that the result for the first example is 4 and the second example is 16.**    
 
-For the second example, when there are two asterisk symbol, it does multiplication first before division.
+For the second example, when there are two asterisk symbol, it does exponential
 
 ```r
 (5-3)*2
