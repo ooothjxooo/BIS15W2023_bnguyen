@@ -41,7 +41,7 @@ RStudio is a GUI that help using R better and it lets you use lots of packages e
 ## [1] 2
 ```
   
-**5. Did any of the results in #4 surprise you? Write two programs that calculate each expression such that the result for the first example is 4 and the second example is 8.**    
+**5. Did any of the results in #4 surprise you? Write two programs that calculate each expression such that the result for the first example is 4 and the second example is 16.**    
 
 For the second example, when there are two asterisk symbol, it does multiplication first before division.
 
@@ -54,11 +54,11 @@ For the second example, when there are two asterisk symbol, it does multiplicati
 ```
 
 ```r
-8/2*2
+(8/2)**2
 ```
 
 ```
-## [1] 8
+## [1] 16
 ```
 
 **6. `Objects` in R are a way in which we can store data or operations. We will talk more about objects next week. For now, make a new object `pi` as 3.14159265359 by running the following code chunk. You should now see the object `pi` in the environment window in the top right.**  
