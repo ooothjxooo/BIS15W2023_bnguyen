@@ -34,6 +34,12 @@ Assign a value to object 'x'. The '<-' symbol is read as 'gets'. In this case, x
 ```{r}
 x <- 42
 ```
+```{r}
+y<-10
+```
+```{r}
+z<-x+y
+```
 
 To print the object to the screen, just type x.  
 ```{r}
@@ -44,6 +50,10 @@ Once an object has been created, you can do things with them.
 ```{r}
 treatment <- 36
 control <- 38
+```
+```{r}
+treatment<-36
+control<-38
 ```
 
 Here we make a new object `my_experiment` that is the sum of the treatment and control. Notice that I use `_` and not spaces.  
@@ -65,15 +75,25 @@ We get an error here because `else` is a function in R. You also don't want to g
 ```{r}
 venom_GT <- 270
 ```
+```{r}
+chiron<-261
+```
+```{r}
+veyron<-268
+```
 
 2. Use arithmetic to calculate the mean top speed for the cars.
 ```{r}
-
+(270+261+268)/3
 ```
 
 3. Use the function `mean()` to calculate the mean top speed for the cars.
 ```{r}
-
+mean(venom_GT, chiron, veyron)
+```
+```{r}
+cars<- c(venom_GT, chiron, veyron)
+mean(cars)
 ```
 
 ## Types of Data
@@ -89,6 +109,10 @@ my_complex <- 2+4i
 To find out what type of data you are working with, use the `class()` function. This is important because sometimes we will need to change the type of data to perform certain analyses.
 ```{r}
 class(my_numeric)
+```
+
+```{r}
+class(my_integer)
 ```
 
 You can use the `is()` and `as()` functions to clarify or specify a type of data.
@@ -129,11 +153,11 @@ new_vector <- c(7, 6.2, 5, 9, NA, 4, 9.8, 7, 3, 2)
 
 2. As we did in homework 1, calculate the mean of `new_vector`.
 ```{r}
-
+mean(new_vector)
 ```
 
 3. How do you interpret this result? What does this mean about NAs?  
-
+This result mean that there is a missing data.
 4. Recalculate the mean using the following code chunk. Why is the useful?  
 ```{r}
 mean(new_vector, na.rm=T) #na.rm removes the NA values in the vector
