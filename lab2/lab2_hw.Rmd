@@ -87,14 +87,14 @@ spring_matrix[2,3]
 9. Calculate the mean for Jill's column only.  
 
 ```{r}
-Jill_mean <- colMeans(spring_matrix,)
-Jill_mean
+Jill_mean <- all_spring_matrix[,1]
+mean(Jill_mean)
 ```
 
 10. Use the data matrix to perform one calculation or operation of your interest.
 ```{r}
-Average_Mean_of_all_lake <- colMeans(all_spring_matrix)
-Average_Mean_of_all_lake
+Average_Mean_of_all_lake <- all_spring_matrix[,4]
+mean(Average_Mean_of_all_lake)
 ```
 
 ## Push your final code to GitHub!

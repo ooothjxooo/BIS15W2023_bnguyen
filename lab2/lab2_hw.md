@@ -154,25 +154,23 @@ spring_matrix[2,3]
 
 
 ```r
-Jill_mean <- colMeans(spring_matrix,)
-Jill_mean
+Jill_mean <- all_spring_matrix[,1]
+mean(Jill_mean)
 ```
 
 ```
-##     Jill    Steve    Susan 
-## 34.19375 33.93125 32.68750
+## [1] 34.19375
 ```
 
 10. Use the data matrix to perform one calculation or operation of your interest.
 
 ```r
-Average_Mean_of_all_lake <- colMeans(all_spring_matrix)
-Average_Mean_of_all_lake
+Average_Mean_of_all_lake <- all_spring_matrix[,4]
+mean(Average_Mean_of_all_lake)
 ```
 
 ```
-##             Jill            Steve            Susan Mean_Temperature 
-##         34.19375         33.93125         32.68750         33.60417
+## [1] 33.60417
 ```
 
 ## Push your final code to GitHub!

@@ -484,18 +484,16 @@ all_spring_matrix</code></pre>
 <ol start="9" style="list-style-type: decimal">
 <li>Calculate the mean for Jill’s column only.</li>
 </ol>
-<pre class="r"><code>Jill_mean &lt;- colMeans(spring_matrix,)
-Jill_mean</code></pre>
-<pre><code>##     Jill    Steve    Susan 
-## 34.19375 33.93125 32.68750</code></pre>
+<pre class="r"><code>Jill_mean &lt;- all_spring_matrix[,1]
+mean(Jill_mean)</code></pre>
+<pre><code>## [1] 34.19375</code></pre>
 <ol start="10" style="list-style-type: decimal">
 <li>Use the data matrix to perform one calculation or operation of your
 interest.</li>
 </ol>
-<pre class="r"><code>Average_Mean_of_all_lake &lt;- colMeans(all_spring_matrix)
-Average_Mean_of_all_lake</code></pre>
-<pre><code>##             Jill            Steve            Susan Mean_Temperature 
-##         34.19375         33.93125         32.68750         33.60417</code></pre>
+<pre class="r"><code>Average_Mean_of_all_lake &lt;- all_spring_matrix[,4]
+mean(Average_Mean_of_all_lake)</code></pre>
+<pre><code>## [1] 33.60417</code></pre>
 </div>
 <div id="push-your-final-code-to-github" class="section level2">
 <h2>Push your final code to GitHub!</h2>
