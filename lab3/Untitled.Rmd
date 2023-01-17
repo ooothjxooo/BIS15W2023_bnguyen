@@ -1,0 +1,100 @@
+---
+title: "Lab 3 Warm Up"
+output: html_document
+date: "2023-01-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### 1.Plant Height Vector
+```{r}
+plant_height <- c(30.7,37.6,28.4,NA,4.6)
+```
+
+### 2. Plant Weight Vector
+```{r}
+plant_weight <- c(4,5.2,3.7,NA,4.6)
+```
+### 3. Labels for data matrix
+
+###4. Combind
+c
+
+### 5 Build the data matrix
+```{r}
+plant_experiment_matrix <- matrix(plant_experiment, nrow = 5, byrow = F)
+```
+
+
+### 6. Name the columns and Rows
+```{r}
+colname(plant_experiment_matrix)
+```
+
+###8. calculate column means
+```{r}
+plant_means <- colMeans(plant_experiment_matrix, na.rm = T)
+plant_means
+
+```
+
+###9.add this column to the matrix
+```{r}
+plant_experiment_matrix_final <- rbind(plant_experiment_matrix, plant_means)
+```
+###10. Print the final version
+
+```{r}
+plant_experiment_matrix_final
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+samples <- c("plant_1","plant_2","plant_3","plant_4","plant_5")
+measured <- c("height","weight")
+```
+
+
+```{r}
+plant_1 <-  c(30.7,4)
+plant_2 <- c(37.6,5.2)
+plant_3 <- c(28.4,3.7)
+plant_4 <- c(NA,NA)
+plant_5 <- c(33.2,4.6)
+```
+
+
+```{r}
+plant <- c(plant_1,plant_3,plant_4,plant_5)
+```
+```{r}
+plant_matrix <- matrix(plant, nrow=5, byrow = T)
+plant_matrix
+```
+
+```{r}
+mean(plant_matrix, na.rm = T)
+```
+
+```{r}
+Average <- colMeans(plant_matrix)
+Average
+```
+
