@@ -129,7 +129,7 @@ spring <- c("Buckeye", "Buckeye", "Buckeye", "Benton", "Benton", "Benton", "Trav
 
 1. Build a data frame called `hsprings` with the above data. Name the temperature column `temp_C`. Print out the data frame.  
 ```{r}
-hsprings <- data.frame(temp,name, spring)
+hsprings <- data.frame(temp,name,spring)
 hsprings
 ```
 
