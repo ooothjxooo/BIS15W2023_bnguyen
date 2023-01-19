@@ -30,7 +30,7 @@ If you need some guidance on following these steps, please watch the [lab setup 
 ## Objects
 In order to access the potential of R we need to assign values or other types of data to `objects`. There is a specific format that I want you to follow, so please pay close attention.  
 
-Assign a value to object 'x'. The '<-' symbol is read as 'gets'. In this case, x gets 42. Make sure that you are in the environment panel and you should see the value associated with 'x'. On a mac, you can push `option` and `-` to automatically generate the gets symbol.  
+Assign a value to object 'x'. The '<-' symbol is read as 'gets'. In this case, x gets 42. Make sure that you are in the environment panel and you should see the value associated with 'x'. On a mac, you can push `option` and `-` to  automatically generate the gets symbol.  
 ```{r}
 x <- 42
 ```
@@ -43,7 +43,7 @@ z<-x+y
 
 To print the object to the screen, just type x.  
 ```{r}
-x
+xx
 ```
 
 Once an object has been created, you can do things with them.  
@@ -118,6 +118,10 @@ class(my_integer)
 You can use the `is()` and `as()` functions to clarify or specify a type of data.
 ```{r}
 is.integer(my_numeric) #is my_numeric an integer?
+```
+
+```{r}
+is.integer(my_logical)
 ```
 
 ```{r}
