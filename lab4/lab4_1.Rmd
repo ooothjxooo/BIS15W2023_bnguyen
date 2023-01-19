@@ -52,6 +52,9 @@ names(fish)
 ## Tidyverse
 The [tidyverse](www.tidyverse.org) is an "opinionated" collection of packages that make workflow in R easier. The packages operate more intuitively than base R commands and share a common organizational philosophy.  
 ![*Data Science Workflow in the Tidyverse.*](tidy-1.png)  
+1. Every variable has its own column
+2. Every obervation has its own row.
+3. Every own cell has its own value.
 
 ## dplyr
 The first package that we will use that is part of the tidyverse is `dplyr`. `dplyr` is used to transform data frames by extracting, rearranging, and summarizing data such that they are focused on a question of interest. This is very helpful,  especially when wrangling large data, and makes dplyr one of most frequently used packages in the tidyverse. The two functions we will use most are `select()` and `filter()`.  
@@ -66,6 +69,11 @@ We are only interested in lakeid and scalelength.
 ```{r}
 select(fish, "lakeid", "scalelength")
 ```
+```{r}
+select(fish, "lakeid", "annnumber")
+```
+The reason we put parenthesis is to tell R that lakeid and annnumber is not an object.
+
 
 To add a range of columns use `start_col:end_col`.
 ```{r}
@@ -142,43 +150,45 @@ mammals <- readr::read_csv("data/mammal_lifehistories_v2.csv")
 
 1. Use one or more of your favorite functions to assess the structure of the data.  
 ```{r}
-
+glimpse(mammals)
 ```
 
 2. Are there any NAs? Are you sure? Try taking an average of `max. life` as a test.  
 ```{r}
-
+is.na(mammals)
 ```
-
+There is no NA in data
 3. What are the names of the columns in the `mammals` data?
 ```{r}
-
+names(mammals)
 ```
 
 4. Rename any columns that have capitol letters or punctuation issues.  
 ```{r}
-
+rename(mammals, genus = Genus, afr = AFR, )
 ```
 
 5. We are only interested in the variables `genus`, `species`, and `mass`. Use `select()` to build a new dataframe `mass` focused on these variables.
 ```{r}
-
+select(mammals, "Genus", "species", "mass")
 ```
 
 6. What if we only wanted to exclude `order` and `family`? Use the `-` operator to make the code efficient.
 ```{r}
-
+select(mammals,-order, -family)
 ```
 
 7. Select the columns that include "mass" as part of the name.  
 ```{r}
-
+select(mammals, contains("mass"))
 ```
 
 8. Select all of the columns that are of class `character`.  
 ```{r}
-
+select_if(mammals, is.character)
 ```
+
+
 
 ## Other
 Here are two examples of code that are super helpful to have in your bag of tricks.  
