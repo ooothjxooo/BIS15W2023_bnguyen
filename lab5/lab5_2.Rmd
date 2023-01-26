@@ -29,12 +29,20 @@ Check out the way I am loading these data. If I know there are NAs, I can take c
 superhero_info <- readr::read_csv("data/heroes_information.csv", na = c("", "-99", "-"))
 superhero_powers <- readr::read_csv("data/super_hero_powers.csv", na = c("", "-99", "-"))
 ```
+```{r}
+glimpse(superhero_info)
+```
+```{r}
+superhero_info
+```
 
 ## Data tidy
 1. Some of the names used in the `superhero_info` data are problematic so you should rename them here.  
 ```{r}
-
+superhero_info %>% 
+  mutate_all(tolower)
 ```
+
 
 Yikes! `superhero_powers` has a lot of variables that are poorly named. We need some R superpowers...
 ```{r}
@@ -50,13 +58,14 @@ library("janitor")
 The `clean_names` function takes care of everything in one line! Now that's a superpower!
 ```{r}
 superhero_powers <- janitor::clean_names(superhero_powers)
+superhero_powers
 ```
 
 ## `tabyl`
 The `janitor` package has many awesome functions that we will explore. Here is its version of `table` which not only produces counts but also percentages. Very handy! Let's use it to explore the proportion of good guys and bad guys in the `superhero_info` data.  
 
 ```{r}
-#tabyl(superhero_info, alignment)
+tabyl(superhero_info, alignment)
 ```
 
 2. Notice that we have some neutral superheros! Who are they?
