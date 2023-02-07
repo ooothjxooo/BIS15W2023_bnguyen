@@ -25,4 +25,4 @@ library("jpeg")
 5. You should think about a topic that interests you, but isn't too far beyond your current level of knowledge.
 6. Original data from projects, labs, etc are great!
 7. Find someone next to you and talk about your general area of interest.
-8. What questions do you have?
+8. What questions do you have?        
