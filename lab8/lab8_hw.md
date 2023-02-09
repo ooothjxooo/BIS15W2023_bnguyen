@@ -44,7 +44,7 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/ooothjxooo/Downloads/BIS15W2023_bnguyen
+## here() starts at /Users/baong12/Documents/GitHub/BIS15W2023_bnguyen
 ```
 
 The quotes show the folder structure from the root directory.
@@ -266,7 +266,8 @@ sydneybeaches_long_year_average_year
 
 
 ```r
-slice_max(sydneybeaches_long_year_average_year,2018)
+sydneybeaches_long_year_average_year %>% 
+  group_by(site)
 ```
 
 ```
@@ -287,7 +288,7 @@ slice_max(sydneybeaches_long_year_average_year,2018)
 ## 11 Tamarama Beach           29.7   39.6   57.0    50.3  20.4   15.5
 ```
 
-
+#South Maroubra Rockpool is the most poulluted beach in 2018
 
 10. Please complete the class project survey at: [BIS 15L Group Project](https://forms.gle/H2j69Z3ZtbLH3efW6)
 

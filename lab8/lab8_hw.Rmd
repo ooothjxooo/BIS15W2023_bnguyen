@@ -116,10 +116,12 @@ sydneybeaches_long_year_average_year
 9. What was the most polluted beach in 2018?
 
 ```{r}
-slice_max(sydneybeaches_long_year_average_year,2018)
+sydneybeaches_long_year_average_year %>% 
+  group_by(site)
+  
 ```
 
-
+#South Maroubra Rockpool is the most poulluted beach in 2018
 
 10. Please complete the class project survey at: [BIS 15L Group Project](https://forms.gle/H2j69Z3ZtbLH3efW6)
 
