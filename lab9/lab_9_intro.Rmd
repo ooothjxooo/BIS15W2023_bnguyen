@@ -19,3 +19,55 @@ library("jpeg")
 2. `rdt` refers to rapid diagnostic test and they are identified here by age group.
 3. Make the data tidy and store them as a new object.
 4. Which district had the highest *total* number of cases on July 30, 2020?
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+```{r}
+malaria <- read.csv("data/malaria.csv")
+```
+
+
+```{r}
+names(malaria
+      )
+```
+
+
+```{r}
+malaria_long <- malaria %>% 
+pivot_longer(cols=starts_with("malaria_rdt"),
+             names_to = "age_class",
+             values_to = "cases") %>% 
+  select(newid, data_date, submitted_date, location_name, District, age_class, cases)
+```
+
+
+#Which district had the highest number of cases on July 30, 2020
+
+```{r}
+malaria_long %>% 
+  filter(data_date=="2020-07-30") %>% 
+  group_by(District) %>% 
+  summarise(total_cases=sum(cases))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

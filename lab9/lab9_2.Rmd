@@ -44,7 +44,9 @@ penguins %>% count(island)
 
 Make this output more visual by adding a plot...
 ```{r}
-
+penguins %>% 
+  count(island) %>% 
+  ggplot(aes(x=island, y=n))+ geom_col()
 ```
 
 What if we wanted a plot that showed the number of measured penguins for each species?
