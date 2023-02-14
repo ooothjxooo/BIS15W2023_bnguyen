@@ -160,6 +160,7 @@ beachbugs
 beachbugs_wide <- beachbugs %>% 
   pivot_wider(names_from = site,
               values_from = buglevels)
+beachbugs_wide
 ```
 
 3. Now, use `pivot_longer` to transform them back to long!
