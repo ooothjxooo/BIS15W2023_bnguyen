@@ -100,7 +100,14 @@ heartrate %>%
 ## Practice
 1. Import the file `relig_income.csv` and store it as a new object `relig_income`.  
 ```{r}
-relig_income <- read_csv(here("lab8", "data", "relig_income.csv"))
+getwd()
+```
+
+```{r}
+relig_income <- read_csv(here("lab8","data","relig_income.csv"))
+```
+```{r}
+names(relig_income)
 ```
 
 2. Why are these data untidy?  
