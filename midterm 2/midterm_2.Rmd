@@ -36,25 +36,134 @@ surgery <- read_csv("data/surgery.csv")
 
 1. (2 points) Use the summary function(s) of your choice to explore the data and get an idea of its structure. Please also check for NA's.
 
+```{r}
+glimpse(surgery)
+```
+
+```{r}
+miss_var_summary(surgery)
+```
+
 2. (3 points) Let's explore the participants in the study. Show a count of participants by race AND make a plot that visually represents your output.
+
+```{r}
+surgery %>% 
+  count(race)
+```
+
+```{r}
+surgery %>% 
+  count(race) %>% 
+  ggplot(aes(x=race,y=n, fill=race))+
+  geom_col()
+
+```
+
 
 3. (2 points) What is the mean age of participants by gender? (hint: please provide a number for each) Since only three participants do not have gender indicated, remove these participants from the data.
 
+```{r}
+surgery %>% 
+  na.omit() %>% 
+  group_by(gender) %>% 
+  summarise(mean_age=mean(age))
+
+```
+
+
 4. (3 points) Make a plot that shows the range of age associated with gender.
+
+```{r}
+surgery %>% 
+  filter(!is.na(gender)) %>% 
+  ggplot(aes(x=gender,y=age))+
+  geom_boxplot()
+```
+
 
 5. (2 points) How healthy are the participants? The variable `asa_status` is an evaluation of patient physical status prior to surgery. Lower numbers indicate fewer comorbidities (presence of two or more diseases or medical conditions in a patient). Make a plot that compares the number of `asa_status` I-II, III, and IV-V.
 
+```{r}
+surgery %>% 
+  count(asa_status) %>% 
+  ggplot(aes(x=asa_status,y=n))+
+  geom_col()
+  
+```
+
+
 6. (3 points) Create a plot that displays the distribution of body mass index for each `asa_status` as a probability distribution- not a histogram. (hint: use faceting!)
+
+```{r}
+surgery %>% 
+  ggplot(aes(x=bmi, fill=asa_status))+ 
+  geom_density(alpha=0.4) + 
+  facet_wrap(~asa_status, ncol=4)+
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
+
+```
+
+
 
 The variable `ccsmort30rate` is a measure of the overall 30-day mortality rate associated with each type of operation. The variable `ccscomplicationrate` is a measure of the 30-day in-hospital complication rate. The variable `ahrq_ccs` lists each type of operation.  
 
+
+
 7. (4 points) What are the 5 procedures associated with highest risk of 30-day mortality AND how do they compare with the 5 procedures with highest risk of complication? (hint: no need for a plot here)
+
+```{r}
+surgery %>% 
+  select(ahrq_ccs,ccsmort30rate) %>% 
+  group_by(ahrq_ccs) %>% 
+  summarise(highest_ccsmort=max(ccsmort30rate)) %>% 
+  arrange(desc(highest_ccsmort))
+```
+
+
+```{r}
+surgery %>% 
+  select(ahrq_ccs,ccscomplicationrate) %>% 
+  group_by(ahrq_ccs) %>% 
+  summarise(highest_ccscom=max(ccscomplicationrate)) %>% 
+  arrange(desc(highest_ccscom))
+```
 
 8. (3 points) Make a plot that compares the `ccsmort30rate` for all listed `ahrq_ccs` procedures.
 
+```{r}
+surgery %>% 
+  select(ahrq_ccs,ccsmort30rate) %>% 
+  ggplot(aes(x=ahrq_ccs,y=ccsmort30rate))+
+  geom_col()+
+  coord_flip()
+```
+
+
+
 9. (4 points) When is the best month to have surgery? Make a chart that shows the 30-day mortality and complications for the patients by month. `mort30` is the variable that shows whether or not a patient survived 30 days post-operation.
 
+```{r}
+surgery %>% 
+  group_by(month) %>%
+  count(mort30) %>% 
+  arrange((n)) %>% 
+  filter(mort30=="Yes")
+```
+
+
 10. (4 points) Make a plot that visualizes the chart from question #9. Make sure that the months are on the x-axis. Do a search online and figure out how to order the months Jan-Dec.
+
+```{r}
+surgery %>% 
+  group_by(month) %>%
+  count(mort30) %>% 
+  ggplot(aes(x=month,y=n, fill=mort30))+
+  geom_col(position = "dodge")+
+  xlab("Month") +
+  scale_y_log10()
+  
+```
+
 
 Please provide the names of the students you have worked with with during the exam:
 
